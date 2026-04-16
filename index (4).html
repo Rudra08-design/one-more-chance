@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Bipasha ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #2c2c2c);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+#typing {
+    font-size: 1.3em;
+    line-height: 1.8;
+    min-height: 180px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+img {
+    width: 250px;
+    margin: 15px;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.buttons {
+    margin-top: 30px;
+    position: relative;
+    height: 100px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+#no {
+    background: #444;
+    color: white;
+    position: absolute;
+}
+
+#finalMsg {
+    display: none;
+    margin-top: 20px;
+    color: #ffd1dc;
+    font-size: 1.3em;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>For My Bipasha ❤️</h1>
+
+<div id="typing"></div>
+
+<!-- Images in emotional order -->
+<img src="please4.jpg" class="fade">
+<img src="please2.jpg" class="fade">
+<img src="please5.jpg" class="fade">
+<img src="please3.jpg" class="fade">
+<img src="please1.jpg" class="fade">
+
+<div class="buttons">
+    <button id="yes" onclick="accepted()">Yes ❤️</button>
+    <button id="no">No 💔</button>
+</div>
+
+<div id="finalMsg">
+    You just made me the happiest person alive ❤️
+</div>
+
+</div>
+
+<script>
+
+// typing animation
+const text = `Meri Bipasha,
+
+I know i've been very rude and unkind and also showed lack of trust...
+
+But from this point on in our life, I'll change.
+
+If you give me one LAST chance,
+I promise you on my life I'll not make you regret it.
+
+Just one chance please, my love ❤️`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+    }
+}
+typeWriter();
+
+// scroll reveal images
+const images = document.querySelectorAll('.fade');
+
+function reveal() {
+    images.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+            img.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', reveal);
+reveal();
+
+// running "No" button
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// yes button
+function accepted() {
+    document.getElementById("finalMsg").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
